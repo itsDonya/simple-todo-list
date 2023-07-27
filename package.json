@@ -1,0 +1,19 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "A simple todo-list app using vue3, nuxt2, &amp; tailwindcss",
+  "author": "Donya Davoodi",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^1.0.0"
+  }
+}
