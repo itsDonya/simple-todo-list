@@ -31,9 +31,14 @@ export default {
 </script>
 
 <script setup>
+import { useStore } from "@nuxtjs/composition-api";
+
+// variables
+const store = useStore();
+
 // methods
 const newTask = () => {
-  // script here
+  store.dispatch("toggleNewTask");
 };
 const checkAll = () => {
   // script here

@@ -11,9 +11,9 @@
         @change="checkTask"
         class="w-3.5 h-3.5 appearance-none bg-white/60 rounded-sm checked:bg-purple-900 focus:outline-none cursor-pointer"
       />
-      <span :class="[taskTitleStyle]" class="checked:hidden">{{
-        data.title
-      }}</span>
+      <span :class="[taskTitleStyle]" class="checked:hidden">
+        <slot></slot>
+      </span>
     </label>
 
     <div class="flex items-center gap-2">
@@ -36,10 +36,6 @@ export default {
 import { ref, computed } from "@nuxtjs/composition-api";
 
 // variables
-const data = ref({
-  title: "My first task",
-  status: "uncompleted",
-});
 const isCheck = ref(false);
 const taskCheckbox = ref(null);
 
