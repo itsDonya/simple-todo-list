@@ -10,9 +10,9 @@
       <div class="flex items-center justify-start gap-3">
         <base-icon
           :name="link.icon"
-          class="w-4 h-4 fill-purple-200"
+          class="w-4 h-4 fill-purple-900"
         ></base-icon>
-        <span class="text-purple-200">{{ link.title }}</span>
+        <span class="text-purple-900">{{ link.title }}</span>
       </div>
     </nuxt-link>
   </nav>
@@ -62,6 +62,6 @@ const links = ref([
 
 <style scoped>
 .nuxt-link-exact-active {
-  background-color: #5b075b49;
+  background-color: #6b21a84d;
 }
 </style>
