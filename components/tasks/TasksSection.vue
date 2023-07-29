@@ -1,9 +1,9 @@
 <template>
-  <tasks-section></tasks-section>
+  <h1>Tasks Section</h1>
 </template>
 
 <script>
 export default {
-  name: "Tasks",
+  name: "TasksSection",
 };
 </script>

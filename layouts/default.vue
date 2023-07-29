@@ -1,7 +1,8 @@
 <template>
   <main class="min-h-screen flex items-start">
     <app-sidebar></app-sidebar>
-    <div>
+    <div class="p-4 w-full">
+      <app-header></app-header>
       <nuxt />
     </div>
   </main>
