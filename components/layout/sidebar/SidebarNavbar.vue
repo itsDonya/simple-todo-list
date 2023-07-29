@@ -5,9 +5,16 @@
       v-for="(link, i) in links"
       :key="i"
       :to="link.to"
-      class="px-3 py-2 hover:bg-purple-800/20 text-purple-200 rounded-lg transition-all"
-      >{{ link.title }}</nuxt-link
+      class="px-3 py-2 hover:bg-purple-800/20 rounded-lg transition-all"
     >
+      <div class="flex items-center justify-start gap-3">
+        <base-icon
+          :name="link.icon"
+          class="w-4 h-4 fill-purple-200"
+        ></base-icon>
+        <span class="text-purple-200">{{ link.title }}</span>
+      </div>
+    </nuxt-link>
   </nav>
 </template>
 
@@ -24,24 +31,28 @@ import { ref } from "@nuxtjs/composition-api";
 const links = ref([
   {
     title: "All",
+    icon: "list-solid",
     to: {
       name: "tasks",
     },
   },
   {
     title: "Completed",
+    icon: "check-solid",
     to: {
       query: { status: "completed" },
     },
   },
   {
     title: "Uncompleted",
+    icon: "clock-regular",
     to: {
       query: { status: "uncompleted" },
     },
   },
   {
     title: "Trash",
+    icon: "trash-can-regular",
     to: {
       query: { status: "deleted" },
     },
