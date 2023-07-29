@@ -25,6 +25,14 @@ export default {
    */
   css: ["@/assets/css/main.css"],
   /*
+   ** Auto-Import & Register Components
+   */ components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
+  /*
    ** Plugins to load before mounting the App
    */
   plugins: [],
@@ -34,6 +42,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/composition-api/module",
   ],
   /*
    ** Nuxt.js modules

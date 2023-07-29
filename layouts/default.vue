@@ -1,5 +1,6 @@
 <template>
-  <main class="min-h-screen">
+  <main class="min-h-screen flex items-start">
+    <app-sidebar></app-sidebar>
     <div>
       <nuxt />
     </div>
@@ -15,5 +16,10 @@ main {
     rgba(217, 29, 253, 1) 50%,
     rgba(255, 56, 247, 1) 100%
   );
+}
+
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 </style>
