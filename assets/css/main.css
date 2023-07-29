@@ -3,18 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* width */
   ::-webkit-scrollbar {
-    @apply w-1.5;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    @apply bg-none;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    @apply bg-purple-900 rounded-xl;
+    @apply hidden;
   }
 }

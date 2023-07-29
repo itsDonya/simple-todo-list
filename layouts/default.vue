@@ -1,7 +1,7 @@
 <template>
   <main class="min-h-screen flex items-start">
     <app-sidebar></app-sidebar>
-    <div class="p-4 w-full max-h-screen overflow-auto">
+    <div class="w-full max-w-5xl max-h-screen p-4 mx-auto overflow-auto">
       <app-header></app-header>
       <nuxt class="mt-4" />
     </div>
