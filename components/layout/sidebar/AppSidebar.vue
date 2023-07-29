@@ -8,12 +8,13 @@
     <!-- menu -->
     <sidebar-navbar></sidebar-navbar>
 
-    <!-- clear data -->
-    <button
-      class="w-full py-2 bg-purple-800/40 hover:bg-purple-800/60 rounded-lg transition-all"
-    >
-      Clear All Data
-    </button>
+    <!-- bottom buttons -->
+    <div class="w-full flex flex-col gap-2">
+      <!-- clear data -->
+      <clear-data-btn></clear-data-btn>
+
+      <sidebar-external-links></sidebar-external-links>
+    </div>
   </aside>
 </template>
 
