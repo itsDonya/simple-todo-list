@@ -1,9 +1,9 @@
 <template>
   <main class="min-h-screen flex items-start">
     <app-sidebar></app-sidebar>
-    <div class="p-4 w-full">
+    <div class="p-4 w-full max-h-screen overflow-auto">
       <app-header></app-header>
-      <nuxt />
+      <nuxt class="mt-4" />
     </div>
   </main>
 </template>

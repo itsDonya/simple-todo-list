@@ -1,5 +1,5 @@
 <template>
-  <component :is="icon"></component>
+  <component v-on="$listeners" :is="icon"></component>
 </template>
 
 <script>
