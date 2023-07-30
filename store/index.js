@@ -16,6 +16,9 @@ export const mutations = {
     state.tasks.unshift(data);
     state.counter++;
   },
+  setTasks(state, tasks) {
+    state.tasks = tasks;
+  },
   removeTask(state, id) {
     const identifiedTaskIndex = state.tasks.findIndex((task) => task.id === id);
     if (identifiedTaskIndex > -1) {
@@ -40,11 +43,21 @@ export const actions = {
 
     commit("newTask", newTaskData);
 
-    // save to localstorage
-    localStorage.setItem("tasks", JSON.stringify(state.tasks));
+    // set new task on localStorage
+    const tasks = state.tasks;
+    localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
   },
-  removeTask({ commit }, id) {
+  removeTask({ state, commit }, id) {
     commit("removeTask", id);
+
+    // set changes on localStorage
+    const tasks = state.tasks;
+    localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
+  },
+  getFromLocalStorage({ commit }) {
+    // get tasks from localStorage (firstLoad)
+    const tasks = JSON.parse(localStorage.getItem("Gischa_Tasks"));
+    commit("setTasks", tasks);
   },
 };
 
