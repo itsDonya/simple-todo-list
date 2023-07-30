@@ -2,7 +2,23 @@ export const state = () => ({
   newTaskOpen: false,
   newTaskTitle: "",
   counter: 0,
-  tasks: [],
+  tasks: [
+    {
+      id: 3,
+      title: "Task 3",
+      status: "uncompleted",
+    },
+    {
+      id: 2,
+      title: "Task 2",
+      status: "uncompleted",
+    },
+    {
+      id: 1,
+      title: "Task 1",
+      status: "uncompleted",
+    },
+  ],
 });
 
 export const mutations = {
@@ -15,6 +31,12 @@ export const mutations = {
   newTask(state, data) {
     state.tasks.unshift(data);
     state.counter++;
+  },
+  removeTask(state, id) {
+    const identifiedTaskIndex = state.tasks.findIndex((task) => task.id === id);
+    if (identifiedTaskIndex > -1) {
+      state.tasks.splice(identifiedTaskIndex, 1);
+    }
   },
 };
 
@@ -33,6 +55,9 @@ export const actions = {
     };
 
     commit("newTask", newTaskData);
+  },
+  removeTask({ commit }, id) {
+    commit("removeTask", id);
   },
 };
 

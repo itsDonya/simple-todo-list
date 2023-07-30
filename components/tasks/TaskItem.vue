@@ -2,7 +2,7 @@
   <div
     @click.self="checkTask"
     :class="[taskStyle]"
-    class="w-full p-4 flex items-center justify-between rounded-lg transition-all cursor-pointer"
+    class="w-full p-4 flex items-center justify-between rounded-lg transition-all cursor-pointer select-none"
   >
     <label class="w-full flex items-center justify-start gap-2 cursor-pointer">
       <input
@@ -12,7 +12,7 @@
         class="w-3.5 h-3.5 appearance-none bg-white/60 rounded-sm checked:bg-purple-900 focus:outline-none cursor-pointer"
       />
       <span :class="[taskTitleStyle]" class="checked:hidden">
-        <slot></slot>
+        {{ task.title }}
       </span>
     </label>
 
@@ -33,20 +33,31 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from "@nuxtjs/composition-api";
+import { ref, computed, useStore } from "@nuxtjs/composition-api";
 
 // variables
+const store = useStore();
 const isCheck = ref(false);
 const taskCheckbox = ref(null);
 
+// props
+const props = defineProps({
+  task: {
+    type: Object,
+    required: true,
+    default: function () {
+      return {};
+    },
+  },
+});
+
 // methods
 const checkTask = () => {
-  // script here
   isCheck.value = !isCheck.value;
   taskCheckbox.value.checked = isCheck.value;
 };
 const removeTask = () => {
-  // script here
+  store.dispatch("removeTask", props.task.id);
 };
 
 // computed
