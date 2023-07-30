@@ -12,9 +12,40 @@ export default {
 </script>
 
 <script setup>
-import { useStore } from "@nuxtjs/composition-api";
+import {
+  ref,
+  watch,
+  useStore,
+  useRoute,
+  computed,
+  onMounted,
+} from "@nuxtjs/composition-api";
 
 // variables
+const query = ref({});
+const route = useRoute();
 const store = useStore();
-const tasks = store.getters.allTasks;
+
+// computed
+const tasks = computed(() => {
+  const status = query.value.status;
+  if (status) {
+    return store.getters.allTasks(status);
+  } else {
+    return store.getters.allTasks("");
+  }
+});
+
+// lifecycles
+onMounted(() => {
+  query.value = route.value.query;
+});
+
+// watchers
+watch(
+  () => route.value.query,
+  (newVal) => {
+    query.value = newVal;
+  }
+);
 </script>

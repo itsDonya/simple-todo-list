@@ -1,4 +1,4 @@
-// import Vue from "vue";
+import Vue from "vue";
 import { createHash } from "../composables/hash-generator";
 
 export const state = () => ({
@@ -35,7 +35,7 @@ export const mutations = {
       state.tasks[identifiedTaskIndex].status === "completed"
         ? "uncompleted"
         : "completed";
-    state.tasks[identifiedTaskIndex].status = newStatus;
+    Vue.set(state.tasks[identifiedTaskIndex], "status", newStatus);
   },
 };
 
@@ -83,7 +83,9 @@ export const actions = {
 };
 
 export const getters = {
-  allTasks(state) {
-    return state.tasks;
+  allTasks: (state) => (status) => {
+    return status == ""
+      ? state.tasks
+      : state.tasks.filter((task) => task.status === status);
   },
 };
