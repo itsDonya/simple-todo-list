@@ -33,7 +33,13 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed, useStore, onMounted } from "@nuxtjs/composition-api";
+import {
+  ref,
+  computed,
+  useStore,
+  onMounted,
+  watch,
+} from "@nuxtjs/composition-api";
 
 // variables
 const store = useStore();
@@ -53,7 +59,6 @@ const props = defineProps({
 // methods
 const checkTask = () => {
   store.dispatch("toggleStatus", props.task.id);
-  taskCheckbox.value.checked = props.task.status === "completed";
 };
 const removeTask = () => {
   store.dispatch("removeTask", props.task.id);
@@ -80,4 +85,13 @@ onMounted(() => {
   // check & fill/blank checbox based on first-loaded status
   taskCheckbox.value.checked = props.task.status === "completed";
 });
+
+// watchers
+watch(
+  () => props.task.status,
+  (newVal) => {
+    // checkbox fill/blacnk based on props changes
+    taskCheckbox.value.checked = newVal === "completed";
+  }
+);
 </script>

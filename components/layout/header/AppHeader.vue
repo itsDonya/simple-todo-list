@@ -41,7 +41,7 @@ const newTask = () => {
   store.dispatch("toggleNewTask");
 };
 const checkAll = () => {
-  // script here
+  store.dispatch("checkAllTasks");
 };
 const removeAll = () => {
   store.dispatch("removeAllTasks");

@@ -37,6 +37,11 @@ export const mutations = {
         : "completed";
     Vue.set(state.tasks[identifiedTaskIndex], "status", newStatus);
   },
+  checkAllTasks(state) {
+    for (let i in state.tasks) {
+      Vue.set(state.tasks[i], "status", "completed");
+    }
+  },
 };
 
 export const actions = {
@@ -79,6 +84,9 @@ export const actions = {
     commit("toggleStatus", id);
     const tasks = state.tasks;
     localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
+  },
+  checkAllTasks({ commit }) {
+    commit("checkAllTasks");
   },
 };
 
