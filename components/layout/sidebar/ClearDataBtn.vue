@@ -1,6 +1,6 @@
 <template>
   <button
-    class="w-full py-2 bg-purple-800/40 hover:bg-purple-800/60 rounded-lg transition-all"
+    class="w-full py-2 text-purple-800 bg-purple-600/40 hover:bg-white/20 rounded-lg transition-all"
   >
     Clear All Data
   </button>
