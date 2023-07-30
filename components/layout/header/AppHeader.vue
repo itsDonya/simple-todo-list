@@ -4,7 +4,7 @@
       @click="newTask"
       class="px-4 py-2 text-sm text-purple-800 bg-white/80 rounded-lg hover:shadow-lg transition-all"
     >
-      New Task
+      {{ $store.state.newTaskOpen ? "Close" : "New Task" }}
     </button>
 
     <div class="flex-items-center gap-2">
