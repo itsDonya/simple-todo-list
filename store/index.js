@@ -2,23 +2,7 @@ export const state = () => ({
   newTaskOpen: false,
   newTaskTitle: "",
   counter: 0,
-  tasks: [
-    {
-      id: 3,
-      title: "Task 3",
-      status: "uncompleted",
-    },
-    {
-      id: 2,
-      title: "Task 2",
-      status: "uncompleted",
-    },
-    {
-      id: 1,
-      title: "Task 1",
-      status: "uncompleted",
-    },
-  ],
+  tasks: [],
 });
 
 export const mutations = {
@@ -55,6 +39,9 @@ export const actions = {
     };
 
     commit("newTask", newTaskData);
+
+    // save to localstorage
+    localStorage.setItem("tasks", JSON.stringify(state.tasks));
   },
   removeTask({ commit }, id) {
     commit("removeTask", id);
