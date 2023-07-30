@@ -3,6 +3,7 @@
     <app-sidebar></app-sidebar>
     <div class="w-full max-w-5xl max-h-screen p-4 mx-auto overflow-auto">
       <app-header></app-header>
+      <hr class="my-3 h-[1px] bg-purple-900/40 border-none" />
       <nuxt class="mt-4" />
     </div>
   </main>

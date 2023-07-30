@@ -9,7 +9,7 @@
         type="checkbox"
         ref="taskCheckbox"
         @change="checkTask"
-        class="w-3.5 h-3.5 appearance-none bg-white/60 rounded-sm checked:bg-purple-900 focus:outline-none cursor-pointer"
+        class="w-3.5 h-3.5 appearance-none bg-white/60 rounded-sm checked:bg-purple-900 cursor-pointer"
       />
       <span :class="[taskTitleStyle]" class="checked:hidden">
         {{ task.title }}

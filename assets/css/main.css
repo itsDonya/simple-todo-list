@@ -6,4 +6,8 @@
   ::-webkit-scrollbar {
     @apply hidden;
   }
+  button,
+  input {
+    @apply focus:outline-none;
+  }
 }

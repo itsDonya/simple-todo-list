@@ -1,5 +1,9 @@
 import Vue from "vue";
 import { createHash } from "../composables/hash-generator";
+import {
+  setOnLocalStorage,
+  getFromLocalStorage,
+} from "../composables/localstorage";
 
 export const state = () => ({
   newTaskOpen: false,
@@ -61,32 +65,30 @@ export const actions = {
     commit("newTask", newTaskData);
 
     // set new task on localStorage
-    const tasks = state.tasks;
-    localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
+    setOnLocalStorage(state.tasks);
   },
   removeTask({ state, commit }, id) {
     commit("removeTask", id);
 
     // set changes on localStorage
-    const tasks = state.tasks;
-    localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
+    setOnLocalStorage(state.tasks);
   },
   getFromLocalStorage({ commit }) {
     // get tasks from localStorage (firstLoad)
-    const tasks = JSON.parse(localStorage.getItem("Gischa_Tasks"));
+    const tasks = getFromLocalStorage();
     commit("setTasks", tasks);
   },
   removeAllTasks({ commit }) {
     commit("removeAllTasks");
-    localStorage.setItem("Gischa_Tasks", JSON.stringify([]));
+    setOnLocalStorage([]);
   },
   toggleStatus({ state, commit }, id) {
     commit("toggleStatus", id);
-    const tasks = state.tasks;
-    localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
+    setOnLocalStorage(state.tasks);
   },
   checkAllTasks({ commit }) {
     commit("checkAllTasks");
+    setOnLocalStorage(state.tasks);
   },
 };
 

@@ -6,7 +6,7 @@
       type="text"
       ref="taskInput"
       v-model="title"
-      class="text-purple-950 focus:outline-none bg-transparent w-full h-8"
+      class="text-purple-950 bg-transparent w-full h-8"
     />
     <base-icon
       @click="newTask"
