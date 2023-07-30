@@ -53,6 +53,7 @@ const props = defineProps({
 // methods
 const checkTask = () => {
   store.dispatch("toggleStatus", props.task.id);
+  taskCheckbox.value.checked = props.task.status === "completed";
 };
 const removeTask = () => {
   store.dispatch("removeTask", props.task.id);
