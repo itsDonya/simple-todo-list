@@ -29,6 +29,14 @@ export const mutations = {
   removeAllTasks(state) {
     state.tasks.splice(0);
   },
+  toggleStatus(state, id) {
+    const identifiedTaskIndex = state.tasks.findIndex((task) => task.id === id);
+    const newStatus =
+      state.tasks[identifiedTaskIndex].status === "completed"
+        ? "uncompleted"
+        : "completed";
+    state.tasks[identifiedTaskIndex].status = newStatus;
+  },
 };
 
 export const actions = {
@@ -66,6 +74,9 @@ export const actions = {
   removeAllTasks({ commit }) {
     commit("removeAllTasks");
     localStorage.setItem("Gischa_Tasks", JSON.stringify([]));
+  },
+  toggleStatus({ commit }, id) {
+    commit("toggleStatus", id);
   },
 };
 

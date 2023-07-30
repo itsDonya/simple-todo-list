@@ -37,7 +37,6 @@ import { ref, computed, useStore } from "@nuxtjs/composition-api";
 
 // variables
 const store = useStore();
-const isCheck = ref(false);
 const taskCheckbox = ref(null);
 
 // props
@@ -53,8 +52,7 @@ const props = defineProps({
 
 // methods
 const checkTask = () => {
-  isCheck.value = !isCheck.value;
-  taskCheckbox.value.checked = isCheck.value;
+  store.dispatch("toggleStatus", props.task.id);
 };
 const removeTask = () => {
   store.dispatch("removeTask", props.task.id);
@@ -62,14 +60,14 @@ const removeTask = () => {
 
 // computed
 const taskStyle = computed(() => {
-  if (isCheck.value) {
+  if (props.task.status === "completed") {
     return "bg-purple-900/10 hover:bg-purple-900/20";
   } else {
     return "bg-purple-900/20 hover:bg-purple-900/30";
   }
 });
 const taskTitleStyle = computed(() => {
-  if (isCheck.value) {
+  if (props.task.status === "completed") {
     return "text-purple-900 line-through";
   } else {
     return "text-purple-950";
