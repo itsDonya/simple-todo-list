@@ -33,7 +33,7 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed, useStore } from "@nuxtjs/composition-api";
+import { ref, computed, useStore, onMounted } from "@nuxtjs/composition-api";
 
 // variables
 const store = useStore();
@@ -73,5 +73,11 @@ const taskTitleStyle = computed(() => {
   } else {
     return "text-purple-950";
   }
+});
+
+// lifecycles
+onMounted(() => {
+  // check & fill/blank checbox based on first-loaded status
+  taskCheckbox.value.checked = props.task.status === "completed";
 });
 </script>

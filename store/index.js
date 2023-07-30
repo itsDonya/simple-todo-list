@@ -75,8 +75,10 @@ export const actions = {
     commit("removeAllTasks");
     localStorage.setItem("Gischa_Tasks", JSON.stringify([]));
   },
-  toggleStatus({ commit }, id) {
+  toggleStatus({ state, commit }, id) {
     commit("toggleStatus", id);
+    const tasks = state.tasks;
+    localStorage.setItem("Gischa_Tasks", JSON.stringify(tasks));
   },
 };
 
