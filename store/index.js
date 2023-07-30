@@ -1,7 +1,8 @@
+import { createHash } from "../composables/hash-generator";
+
 export const state = () => ({
   newTaskOpen: false,
   newTaskTitle: "",
-  counter: 0,
   tasks: [],
 });
 
@@ -14,7 +15,6 @@ export const mutations = {
   },
   newTask(state, data) {
     state.tasks.unshift(data);
-    state.counter++;
   },
   setTasks(state, tasks) {
     state.tasks = tasks;
@@ -36,7 +36,7 @@ export const actions = {
   },
   newTask({ state, commit }) {
     const newTaskData = {
-      id: state.counter,
+      id: createHash(),
       title: state.newTaskTitle,
       status: "uncompleted",
     };
