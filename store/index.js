@@ -1,3 +1,4 @@
+// import Vue from "vue";
 import { createHash } from "../composables/hash-generator";
 
 export const state = () => ({
@@ -24,6 +25,9 @@ export const mutations = {
     if (identifiedTaskIndex > -1) {
       state.tasks.splice(identifiedTaskIndex, 1);
     }
+  },
+  removeAllTasks(state) {
+    state.tasks.splice(0);
   },
 };
 
@@ -58,6 +62,10 @@ export const actions = {
     // get tasks from localStorage (firstLoad)
     const tasks = JSON.parse(localStorage.getItem("Gischa_Tasks"));
     commit("setTasks", tasks);
+  },
+  removeAllTasks({ commit }) {
+    commit("removeAllTasks");
+    localStorage.setItem("Gischa_Tasks", JSON.stringify([]));
   },
 };
 

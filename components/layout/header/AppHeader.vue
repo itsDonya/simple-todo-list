@@ -44,6 +44,6 @@ const checkAll = () => {
   // script here
 };
 const removeAll = () => {
-  // script here
+  store.dispatch("removeAllTasks");
 };
 </script>
