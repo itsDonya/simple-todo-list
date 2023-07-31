@@ -1,6 +1,7 @@
 <template>
   <aside
-    class="w-44 p-2 h-screen text-purple-950 bg-white/40 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-between gap-4"
+    :class="[sidebarStyle]"
+    class="absolute h-screen text-purple-950 bg-white/70 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-between gap-4 transition-all duration-300"
   >
     <!-- title -->
     <sidebar-title></sidebar-title>
@@ -13,6 +14,7 @@
       <!-- clear data -->
       <clear-data-btn></clear-data-btn>
 
+      <!-- external links -->
       <sidebar-external-links></sidebar-external-links>
     </div>
   </aside>
@@ -22,4 +24,26 @@
 export default {
   name: "AppSidebar",
 };
+</script>
+
+<script setup>
+import { computed } from "@nuxtjs/composition-api";
+
+// props
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+});
+
+// computed
+const sidebarStyle = computed(() => {
+  if (props.isOpen) {
+    return "w-44 p-2";
+  } else {
+    return "w-0 p-0 overflow-hidden";
+  }
+});
 </script>
