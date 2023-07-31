@@ -17,6 +17,20 @@
     </label>
 
     <div class="flex items-center gap-2">
+      <!-- archive task -->
+      <base-icon
+        @click="archiveTask"
+        name="box-archive-solid"
+        v-if="props.task.status !== 'archive'"
+        class="w-5 h-5 fill-purple-950 hover:fill-purple-900 cursor-pointer transition-all"
+      ></base-icon>
+      <base-icon
+        v-else
+        @click="restoreTask"
+        name="rotate-left-solid"
+        class="w-5 h-5 fill-purple-950 hover:fill-purple-900 cursor-pointer transition-all"
+      ></base-icon>
+      <!-- remove task -->
       <base-icon
         @click="removeTask"
         name="trash-can-regular"
@@ -62,6 +76,12 @@ const checkTask = () => {
 };
 const removeTask = () => {
   store.dispatch("removeTask", props.task.id);
+};
+const archiveTask = () => {
+  store.dispatch("archiveTask", props.task.id);
+};
+const restoreTask = () => {
+  store.dispatch("restoreTask", props.task.id);
 };
 
 // computed

@@ -51,10 +51,10 @@ const links = ref([
     },
   },
   {
-    title: "Trash",
-    icon: "trash-can-regular",
+    title: "Archive",
+    icon: "box-archive-solid",
     to: {
-      query: { status: "deleted" },
+      query: { status: "archive" },
     },
   },
 ]);

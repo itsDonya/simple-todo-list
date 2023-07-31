@@ -30,6 +30,14 @@ export const mutations = {
       state.tasks.splice(identifiedTaskIndex, 1);
     }
   },
+  archiveTask(state, id) {
+    const identifiedTaskIndex = state.tasks.findIndex((task) => task.id === id);
+    Vue.set(state.tasks[identifiedTaskIndex], "status", "archive");
+  },
+  restoreTask(state, id) {
+    const identifiedTaskIndex = state.tasks.findIndex((task) => task.id === id);
+    Vue.set(state.tasks[identifiedTaskIndex], "status", "uncompleted");
+  },
   removeAllTasks(state) {
     state.tasks.splice(0);
   },
@@ -73,6 +81,18 @@ export const actions = {
     // set changes on localStorage
     setOnLocalStorage(state.tasks);
   },
+  archiveTask({ state, commit }, id) {
+    commit("archiveTask", id);
+
+    // set changes on localStorage
+    setOnLocalStorage(state.tasks);
+  },
+  restoreTask({ commit }, id) {
+    commit("restoreTask", id);
+
+    // set changes on localStorage
+    setOnLocalStorage(state.tasks);
+  },
   getFromLocalStorage({ commit }) {
     // get tasks from localStorage (firstLoad)
     const tasks = getFromLocalStorage();
@@ -95,7 +115,7 @@ export const actions = {
 export const getters = {
   allTasks: (state) => (status) => {
     return status == ""
-      ? state.tasks
+      ? state.tasks.filter((task) => task.status !== "archive")
       : state.tasks.filter((task) => task.status === status);
   },
 };
