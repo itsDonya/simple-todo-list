@@ -53,6 +53,7 @@ watch(
   () => route.value.query,
   (newVal) => {
     query.value = newVal;
+    store.dispatch("toggleSidebar");
   }
 );
 </script>

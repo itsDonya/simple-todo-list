@@ -71,15 +71,8 @@ export default {
     // clear all tasks stored in state
     state.tasks.splice(0);
   },
-  toggleSidebar(state, value) {
-    // value should be a Boolean
-    if (value) {
-      // set sidebar visibility as we determine
-      state.sidebarOpen = value;
-      Vue.set(state, "sidebarOpen", value);
-    } else {
-      // just toggle sidebar's current visibility
-      Vue.set(state, "sidebarOpen", !state.sidebarOpen);
-    }
+  toggleSidebar(state) {
+    // toggle sidebar's current visibility
+    Vue.set(state, "sidebarOpen", !state.sidebarOpen);
   },
 };
