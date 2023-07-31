@@ -51,7 +51,8 @@ export const mutations = {
   },
   checkAllTasks(state) {
     for (let i in state.tasks) {
-      Vue.set(state.tasks[i], "status", "completed");
+      if (state.tasks[i].status !== "archive")
+        Vue.set(state.tasks[i], "status", "completed");
     }
   },
 };
