@@ -15,16 +15,18 @@ export default {
     commit("updateNewTaskTitle", value);
   },
   newTask({ state, commit }) {
-    const newTaskData = {
-      id: createHash(), // 6-digits hashId
-      title: state.newTaskTitle,
-      status: "uncompleted", // each task is uncompleted on first submit
-    };
+    if (state.newTaskTitle.length) {
+      const newTaskData = {
+        id: createHash(), // 6-digits hashId
+        title: state.newTaskTitle,
+        status: "uncompleted", // each task is uncompleted on first submit
+      };
 
-    commit("newTask", newTaskData);
+      commit("newTask", newTaskData);
 
-    // set updated tasks in localStorage
-    setOnLocalStorage(state.tasks);
+      // set updated tasks in localStorage
+      setOnLocalStorage(state.tasks);
+    }
   },
   removeTask({ state, commit }, id) {
     commit("removeTask", id);
