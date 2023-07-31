@@ -5,14 +5,14 @@
       v-for="(link, i) in links"
       :key="i"
       :to="link.to"
-      class="px-3 py-2 hover:bg-purple-800/20 rounded-lg transition-all"
+      class="px-3 py-2 hover:bg-fuchsia-800/20 rounded-lg transition-all"
     >
       <div class="flex items-center justify-start gap-3">
         <base-icon
           :name="link.icon"
-          class="w-4 h-4 fill-purple-900"
+          class="w-4 h-4 fill-fuchsia-900"
         ></base-icon>
-        <span class="text-purple-900">{{ link.title }}</span>
+        <span class="text-fuchsia-900">{{ link.title }}</span>
       </div>
     </nuxt-link>
   </nav>
@@ -62,6 +62,6 @@ const links = ref([
 
 <style scoped>
 .nuxt-link-exact-active {
-  background-color: #6b21a84d;
+  background-color: #86198f40;
 }
 </style>

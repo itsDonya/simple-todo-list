@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between gap-1">
     <sidebar-external-link
       v-for="(link, i) in links"
       :key="i"

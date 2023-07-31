@@ -1,7 +1,7 @@
 <template>
   <button
     @click="clearData"
-    class="w-full py-2 text-purple-800 bg-purple-600/40 hover:bg-white/20 rounded-lg transition-all"
+    class="w-full py-2 text-fuchsia-900 bg-fuchsia-600/40 hover:bg-white/20 rounded-lg transition-all"
   >
     Clear All Data
   </button>
