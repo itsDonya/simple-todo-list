@@ -75,4 +75,7 @@ export default {
     // clear anything stored in localStorage
     clearLocalStorage();
   },
+  toggleSidebar({ commit }, value) {
+    commit("toggleSidebar", value);
+  },
 };

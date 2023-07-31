@@ -35,14 +35,17 @@ export default {
 </script>
 
 <script setup>
-import { ref } from "@nuxtjs/composition-api";
+import { useStore, computed } from "@nuxtjs/composition-api";
 
 // variables
-const isSidebarOpen = ref(false);
+const store = useStore();
+const isSidebarOpen = computed(() => {
+  return store.state.sidebarOpen;
+});
 
 // functions
 const toggleSidebar = () => {
-  isSidebarOpen.value = !isSidebarOpen.value;
+  store.dispatch("toggleSidebar");
 };
 </script>
 

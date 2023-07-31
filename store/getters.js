@@ -6,4 +6,7 @@ export default {
       : // returns tasks with a specific status (completed/uncompleted/archive)
         state.tasks.filter((task) => task.status === status);
   },
+  sidebarOpen(state) {
+    return state.sidebarOpen;
+  },
 };

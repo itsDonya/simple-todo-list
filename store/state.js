@@ -1,5 +1,6 @@
 export default () => ({
-  newTaskOpen: false,
-  newTaskTitle: "",
   tasks: [],
+  newTaskTitle: "",
+  newTaskOpen: false,
+  sidebarOpen: false,
 });
