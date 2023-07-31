@@ -4,5 +4,5 @@ export const setOnLocalStorage = (data) => {
 
 export const getFromLocalStorage = () => {
   const tasks = JSON.parse(localStorage.getItem("Gischa_Tasks"));
-  return tasks;
+  return tasks ? tasks : [];
 };

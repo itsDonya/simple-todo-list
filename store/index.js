@@ -39,7 +39,11 @@ export const mutations = {
     Vue.set(state.tasks[identifiedTaskIndex], "status", "uncompleted");
   },
   removeAllTasks(state) {
+    const archivedTasks = state.tasks.filter(
+      (task) => task.status === "archive"
+    );
     state.tasks.splice(0);
+    Vue.set(state, "tasks", archivedTasks);
   },
   toggleStatus(state, id) {
     const identifiedTaskIndex = state.tasks.findIndex((task) => task.id === id);
@@ -51,8 +55,9 @@ export const mutations = {
   },
   checkAllTasks(state) {
     for (let i in state.tasks) {
-      if (state.tasks[i].status !== "archive")
+      if (state.tasks[i].status !== "archive") {
         Vue.set(state.tasks[i], "status", "completed");
+      }
     }
   },
 };
@@ -99,9 +104,9 @@ export const actions = {
     const tasks = getFromLocalStorage();
     commit("setTasks", tasks);
   },
-  removeAllTasks({ commit }) {
+  removeAllTasks({ state, commit }) {
     commit("removeAllTasks");
-    setOnLocalStorage([]);
+    setOnLocalStorage(state.tasks);
   },
   toggleStatus({ state, commit }, id) {
     commit("toggleStatus", id);
