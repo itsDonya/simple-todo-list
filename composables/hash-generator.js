@@ -4,7 +4,7 @@ export const createHash = () => {
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let HASH = [];
 
-  for (let i = 0; i <= 6; i++) {
+  for (let i = 0; i < 6; i++) {
     const randNum = Math.floor(Math.random() * chars.length);
 
     const char = chars[randNum];

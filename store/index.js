@@ -3,6 +3,7 @@ import { createHash } from "../composables/hash-generator";
 import {
   setOnLocalStorage,
   getFromLocalStorage,
+  clearLocalStorage,
 } from "../composables/localstorage";
 
 export const state = () => ({
@@ -60,6 +61,9 @@ export const mutations = {
       }
     }
   },
+  clearData(state) {
+    state.tasks.splice(0);
+  },
 };
 
 export const actions = {
@@ -115,6 +119,10 @@ export const actions = {
   checkAllTasks({ commit }) {
     commit("checkAllTasks");
     setOnLocalStorage(state.tasks);
+  },
+  clearData({ commit }) {
+    commit("clearData");
+    clearLocalStorage();
   },
 };
 

@@ -38,7 +38,7 @@ export default {
 import { ref } from "@nuxtjs/composition-api";
 
 // variables
-const isSidebarOpen = ref(true);
+const isSidebarOpen = ref(false);
 
 // functions
 const toggleSidebar = () => {
