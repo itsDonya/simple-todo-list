@@ -12,6 +12,7 @@ export default {
 import { computed } from "@nuxtjs/composition-api";
 const props = defineProps({
   name: {
+    // example: chevron-left-solid
     type: String,
     required: true,
     default: "",

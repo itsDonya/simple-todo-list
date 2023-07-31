@@ -1,5 +1,6 @@
 <template>
   <header class="w-full flex items-center justify-between">
+    <!-- new task -->
     <button
       @click="newTask"
       class="px-4 py-2 text-sm text-purple-800 bg-white/80 rounded-lg hover:shadow-lg transition-all"
@@ -8,12 +9,15 @@
     </button>
 
     <div class="flex-items-center gap-2">
+      <!-- remove all tasks -->
       <button
         @click="removeAll"
         class="px-4 py-2 text-sm text-purple-800/80 rounded-lg hover:bg-purple-800/10 transition-all"
       >
         Remove all
       </button>
+
+      <!-- check all tasks -->
       <button
         @click="checkAll"
         class="px-4 py-2 text-sm text-purple-800/80 border-2 border-purple-800/80 rounded-lg hover:bg-purple-800/10 transition-all"

@@ -41,6 +41,7 @@ const title = computed({
     return store.state.newTaskTitle;
   },
   set(value) {
+    // update new task title (in store) on every change
     store.dispatch("updateNewTaskTitle", value);
   },
 });

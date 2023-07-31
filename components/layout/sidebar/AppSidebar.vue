@@ -40,6 +40,7 @@ const props = defineProps({
 
 // computed
 const sidebarStyle = computed(() => {
+  // change sidebar style based on is it opened or not
   if (props.isOpen) {
     return "w-44 p-2";
   } else {
