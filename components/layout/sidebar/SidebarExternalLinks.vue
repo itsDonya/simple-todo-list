@@ -23,14 +23,14 @@ const links = ref([
     icon: "github",
     attrs: {
       title: "See on Github",
-      href: "https://github.com/itsDonya/todo-list",
+      href: "https://github.com/itsDonya/simple-todo-list",
     },
   },
   {
     icon: "bug-solid",
     attrs: {
       title: "Bug report",
-      href: "https://github.com/itsDonya/todo-list/issues",
+      href: "https://github.com/itsDonya/simple-todo-list/issues",
     },
   },
   {
